@@ -1,5 +1,5 @@
 const { nanoid } = require('nanoid');
-const { validateBookInput } = require('./utils/error.handler');
+const { validateBookInput, validateBookEditInput } = require('./utils/error.handler');
 const books = require('./books');
 
 const addBookHandler = async (request, h) => {
@@ -84,7 +84,7 @@ const editBookByIdHandler = (request, h) => {
   const { id } = request.params;
   const { name, year, author, summary, publisher, pageCount, readPage, reading } = request.payload;
 
-  const validationResult = validateBookInput(name, readPage, pageCount);
+  const validationResult = validateBookEditInput(name, readPage, pageCount);
   if (validationResult.error) {
     return h.response({
       status: 'fail',
