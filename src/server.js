@@ -1,7 +1,7 @@
 const routes = require('./routes');
 const Hapi = require('@hapi/hapi');
 // const connectDB = require('./db/connect');
-require('dotenv').config();
+// require('dotenv').config();
 
 
 const init = async () => {
